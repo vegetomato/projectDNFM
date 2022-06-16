@@ -8,7 +8,7 @@
 	회원 번호 : ${member.id }  <br>
 	이름 : <input type="text" name="userName" value="${memeber.userName }"><br>
 	이메일 : <input type="text" name="email" value="${memeber.email}"><br>
-	이메일 : <input type="text" name="password" value="${memeber.password }"><br>
+	비밀번호 : <input type="text" name="password" value="${memeber.password }"><br>
 	<button class="btn btn-warning">수정하기</button>
 </form>
 </div>

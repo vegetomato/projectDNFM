@@ -32,10 +32,13 @@
       <a class="nav-link" href="${contextPath }/board/list">게시판</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="${contextPath }/member/register">회원가입</a>
+      <a class="nav-link" href="#">로그인</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="${contextPath }/member/list">회원목록</a>
     </li>
        <li class="nav-item">
-      <a class="nav-link" href="${contextPath }/member/list">회원목록</a>
+      <a class="nav-link" href="${contextPath }/member/register">회원가입</a>
     </li>
   </ul>
 

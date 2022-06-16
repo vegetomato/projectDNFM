@@ -40,4 +40,10 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.totalCount(criteria);
 	}
 
+	@Override
+	public void remove(Long id) {
+		mapper.delete(id);
+		
+	}
+
 }

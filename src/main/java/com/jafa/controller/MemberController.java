@@ -53,7 +53,7 @@ public class MemberController {
 	@GetMapping("/modify")
 	public String updateForm(Long id, Model model) {
 		model.addAttribute("member",service.get(id));
-		return "member/list";
+		return "member/modify";
 	}
 	
 	@PostMapping("/modify")
@@ -66,4 +66,11 @@ public class MemberController {
 		model.addAttribute("member",service.get(id));
 		return "member/get";
 	}
+	
+	@PostMapping("/remove")
+	public String delete(Long id) {
+		service.remove(id);
+		return "redirect:list";
+	}
+	
 }

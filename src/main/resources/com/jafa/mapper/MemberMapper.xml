@@ -31,7 +31,7 @@
 	</select>
 
 	<select id="totalCount" resultType="int">
-		select count(*) from board_tbl
+		select count(*) from member_tbl
 		<include refid="search" />
 	</select>
 
@@ -60,5 +60,10 @@
 		password = #{password}
 		where id = #{id}
 	</update>
+
+	<delete id="delete">
+		delete from member_tbl where id = #{id}
+	</delete>
+
 
 </mapper>

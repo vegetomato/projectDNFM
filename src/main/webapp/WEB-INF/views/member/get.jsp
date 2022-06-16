@@ -10,9 +10,9 @@
 	<form id="getForm">
 		<input type="hidden" name="id" value="${member.id}">
 		<div>
-			<p>닉네임 : ${member.userName}</p>
-			<p>E-mail : ${member.email }</p>
-			<p>비밀 번호 : ${member.password }</p>
+			<h3>이름 :${member.userName }</h3>
+			<p>작성자 : ${member.email}</p>
+			<p>비밀번호 : ${member.password}</p>
 		</div>
 		<button class="btn btn-warning modify">수정</button>
 		<button class="btn btn-danger remove">삭제</button>

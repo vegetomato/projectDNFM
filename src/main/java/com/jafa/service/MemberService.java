@@ -7,8 +7,9 @@ import com.jafa.model.Member;
 
 public interface MemberService {
 	List<Member> getList(Criteria criteria);
+	Member get(Long id);
 	void register(Member member);
 	void modify(Member member);
-	Member get(Long id);
+	void remove(Long id);
 	int totalCount(Criteria criteria);
 }

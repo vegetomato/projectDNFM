@@ -8,8 +8,9 @@ import com.jafa.model.Member;
 public interface MemberMapper {
 // 가입, 수정, 리스트 
 	List<Member> getList(Criteria criteria);
+	Member get(Long id);
 	void insert(Member member);
 	void update(Member member);
-	Member get(Long id);
+	void delete(Long id);
 	int totalCount(Criteria criteria);
 }
