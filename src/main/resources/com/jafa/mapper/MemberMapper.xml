@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jafa.mapper.MemberMapper">
+	<sql id="search">
+		<where>
+			<trim prefixOverrides="OR">
+				<foreach collection="typeCollection">
+					<trim prefix="OR">
+						<choose>
+							<when test="type=='T'.toString()">
+								title like concat('%',#{keyword},'%')
+							</when>
+							<when test="type=='C'.toString()">
+								content like concat('%',#{keyword},'%')
+							</when>
+							<when test="type=='W'.toString()">
+								writer like concat('%',#{keyword},'%')
+							</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</where>
+	</sql>
+	<select id="getList" resultType="com.jafa.model.Member">
+		select * from member_tbl
+		<include refid="search" />
+		limit #{pageStart}, #{perPageNum}
+	</select>
+
+	<select id="totalCount" resultType="int">
+		select count(*) from board_tbl
+		<include refid="search" />
+	</select>
+
+
+	<select id="get" resultType="com.jafa.model.Member">
+		select * from member_tbl where id =
+		#{id}
+	</select>
+
+	<insert id="insert">
+		insert into member_tbl(username,email,password)
+		values(#{userName},#{email},#{password})
+		<selectKey keyProperty="id" order="AFTER" resultType="Long">
+			select
+			last_insert_id();
+		</selectKey>
+	</insert>
+
+
+	<update id="update">
+		update member_tbl
+		set
+		userName = #{userName},
+		email =
+		#{email},
+		password = #{password}
+		where id = #{id}
+	</update>
+
+</mapper>
