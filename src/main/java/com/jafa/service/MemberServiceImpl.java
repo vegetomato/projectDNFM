@@ -2,6 +2,8 @@ package com.jafa.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,9 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	MemberMapper mapper;
+	
+	@Autowired
+	HttpSession session;
 	
 	@Override
 	public List<Member> getList(Criteria criteria) {
@@ -46,4 +51,18 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public String loginCheck(Member member) {
+		String email = mapper.loginCheck(member);
+		if(email != null) {
+			session.setAttribute("email", email);
+		}
+		return email;
+	}
+
+	@Override
+	public void logout() {
+		session.invalidate();
+	}
+	
 }

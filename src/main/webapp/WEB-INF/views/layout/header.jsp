@@ -32,9 +32,18 @@
     <li class="nav-item">
       <a class="nav-link" href="${contextPath }/board/list">게시판</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="${contextPath }/member/loginTest">로그인</a>
-    </li>
+    <c:if test="${empty sessionScope.email}">
+    	<li class="nav-item">
+      		<a class="nav-link" href="${contextPath }/member/login">로그인</a>
+    	</li>
+    </c:if>
+     <c:if test="${not empty sessionScope.email}">
+    	<li class="nav-item">
+    	<form action="${contextPath }/member/logout" id="logoutForm" method="post">
+    		<a class="nav-link" href="#">로그아웃</a>
+    	</form>
+    	</li>
+    </c:if>
     <li class="nav-item">
       <a class="nav-link" href="${contextPath }/member/list">회원목록</a>
     </li>
@@ -42,6 +51,12 @@
       <a class="nav-link" href="${contextPath }/member/register">회원가입</a>
     </li>
   </ul>
-
 </nav>
 
+<script>
+$('#logoutForm a').on('click',function(e){
+	e.preventDefault();
+	$('#logoutForm').submit();
+	
+})
+</script>

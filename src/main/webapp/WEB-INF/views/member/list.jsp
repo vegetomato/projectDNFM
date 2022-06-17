@@ -14,8 +14,8 @@
 	<h3>자유 게시판</h3>
 	<tr>
 		<th>번호</th>
-		<th>제목</th>
-		<th>작성자</th>
+		<th>회원이름</th>
+		<th>E-mail</th>
 	</tr>
 	<c:forEach items="${list}" var="m">
 	<tr>

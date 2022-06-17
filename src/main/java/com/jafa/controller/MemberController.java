@@ -2,6 +2,7 @@ package com.jafa.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import com.jafa.model.Criteria;
 import com.jafa.model.Member;
 import com.jafa.model.PageMaker;
 import com.jafa.service.MemberServiceImpl;
+import com.jafa.validation.MemberValidator;
 
 @RequestMapping("/member/")
 @Controller
@@ -73,9 +75,29 @@ public class MemberController {
 		return "redirect:list";
 	}
 	
-	@GetMapping("/loginTest")
-	public String login() {
-		return "member/loginTest";
+	@GetMapping("/login")
+	public String loginForm(Member member) {
+		return "member/login";
 	}
 	
+	@PostMapping("/login")
+	public String login(@Valid Member member, Errors errors, Model model) {
+		String email = service.loginCheck(member);
+		new MemberValidator().validate(member, errors);
+		if(email == null) {
+			model.addAttribute("message", "로그인 실패");
+			return "member/login";
+		} 
+		return "redirect:/";
+	}
+	@GetMapping("/logout")
+	public String logoutForm() {
+		return "member/logout";
+	}
+	
+	@PostMapping("/logout")
+	public String logout(Model model) {
+		service.logout();
+		return "redirect:/";
+	}
 }

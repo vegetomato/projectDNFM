@@ -64,6 +64,11 @@
 	<delete id="delete">
 		delete from member_tbl where id = #{id}
 	</delete>
+	
+	<!-- 로그인  -->
+	<select id="loginCheck" resultType="String">
+		 select email from member_tbl where email=#{email} and password=#{password}
+	</select>
 
 
 </mapper>
