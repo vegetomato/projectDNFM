@@ -73,4 +73,9 @@ public class MemberController {
 		return "redirect:list";
 	}
 	
+	@GetMapping("/loginTest")
+	public String login() {
+		return "member/loginTest";
+	}
+	
 }

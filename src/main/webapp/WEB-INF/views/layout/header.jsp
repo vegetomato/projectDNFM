@@ -18,6 +18,7 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="resources/js/header.js"></script>
+<link rel="stylesheet" type="text/css"href="resources/css/reset.css" />
 <link rel="stylesheet" type="text/css"href="resources/css/style.css" />
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 </head>
@@ -32,7 +33,7 @@
       <a class="nav-link" href="${contextPath }/board/list">게시판</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">로그인</a>
+      <a class="nav-link" href="${contextPath }/member/loginTest">로그인</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="${contextPath }/member/list">회원목록</a>
