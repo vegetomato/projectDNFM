@@ -15,14 +15,13 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import com.jafa.config.RootConfig;
 import com.jafa.config.ServletConfig;
 import com.jafa.model.Member;
+import com.jafa.service.MemberServiceImpl;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {RootConfig.class,ServletConfig.class})
-@WebAppConfiguration
-public class MemberMapperTest {
+public class MemberMapperTest extends Apptest{
 
 	@Autowired
-	MemberMapper mapper; 
+	MemberMapper mapper;
+	
 	
 	@Test
 	public void loginCheckTest() {

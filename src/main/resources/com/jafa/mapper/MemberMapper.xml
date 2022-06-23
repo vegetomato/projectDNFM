@@ -9,14 +9,11 @@
 				<foreach collection="typeCollection">
 					<trim prefix="OR">
 						<choose>
-							<when test="type=='T'.toString()">
-								title like concat('%',#{keyword},'%')
+							<when test="type=='U'.toString()">
+								username like concat('%',#{keyword},'%')
 							</when>
-							<when test="type=='C'.toString()">
-								content like concat('%',#{keyword},'%')
-							</when>
-							<when test="type=='W'.toString()">
-								writer like concat('%',#{keyword},'%')
+							<when test="type=='E'.toString()">
+								email like concat('%',#{keyword},'%')
 							</when>
 						</choose>
 					</trim>
@@ -37,8 +34,7 @@
 
 
 	<select id="get" resultType="com.jafa.model.Member">
-		select * from member_tbl where id =
-		#{id}
+		select * from member_tbl where id = #{id}
 	</select>
 
 	<insert id="insert">

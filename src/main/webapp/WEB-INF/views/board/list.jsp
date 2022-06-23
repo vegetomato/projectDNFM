@@ -21,7 +21,6 @@
 	</form>
 <table class="table">
 	<h3>자유 게시판</h3>
-	<a href="register" class="btn btn-primary">글쓰기</a>
 	<tr>
 		<th>번호</th>
 		<th>제목</th>
@@ -47,6 +46,7 @@
 	</tr>
 	</c:forEach>
 </table>
+<a href="register" class="btn btn-primary">글쓰기</a>
 <div class="pagination">
 <c:if test="${pageMaker.prev }">
 	<li class="page-item"><a href="${pageMaker.startPage-1 }" class="page-link">이전페이지</a></li>

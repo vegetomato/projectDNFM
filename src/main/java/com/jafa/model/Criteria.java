@@ -10,6 +10,12 @@ public class Criteria {
 	private int page;
 	private int perPageNum;
 	
+	public Criteria(int page, int perPageNum) {
+		this.page = page;
+		this.perPageNum = perPageNum;
+	}
+	
+	
 	private String type; 
 	private String keyword;
 	
@@ -25,4 +31,6 @@ public class Criteria {
 	public String[] getTypeCollection() {
 		return type != null ? type.split("") : new String[] {};
 	}
+
+
 }
